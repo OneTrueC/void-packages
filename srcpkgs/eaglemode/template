@@ -1,0 +1,51 @@
+# Template file for 'eaglemode'
+pkgname=eaglemode
+version=0.96.4
+revision=1
+hostmakedepends="perl gcc pkg-config findutils"
+makedepends="libX11-devel vlc-devel libjpeg-turbo-devel libpng-devel \
+ tiff-devel libwebp-devel librsvg-devel poppler-glib-devel gtk+3-devel \
+ freetype-devel"
+# on one hand, the eaglemode project lists a series of programs to use
+# here, on the other the user likely has programs for opening files they
+# have on their system
+depends=""
+short_desc="zoomable user interface (ZUI) with file manager, viewers, games, & more"
+maintainer="Drew Marino <drewmarino25@gmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://eaglemode.sourceforge.net/"
+changelog="https://eaglemode.sourceforge.net/ChangeLog.html"
+distfiles="http://downloads.sourceforge.net/eaglemode/eaglemode-${version}.tar.xz"
+checksum=9f7b09b02a541c607225a2b8318012017a22c379d9717b34fc57035758933eb8
+
+do_build() {
+	perl make.pl build cpus=${XBPS_MAKEJOBS} compiler=gnu
+}
+
+do_install() {
+	vmkdir usr/include
+	vmkdir usr/share/doc
+
+	mv lib/*.so ${DESTDIR}/usr/lib
+	mv include/* ${DESTDIR}/usr/include
+	mv doc ${DESTDIR}/usr/share/doc/eaglemode
+	vdoc README
+
+	perl make.pl install dir=/opt/eaglemode menu=yes bin=yes root=${DESTDIR}
+	ln -sf /usr/share/doc/eaglemode ${DESTDIR}/opt/eaglemode/doc
+}
+
+libeaglemode_package() {
+	short_desc="eaglemode ZUI development headers"
+	pkg_install() {
+		vmove "/usr/lib/*"
+	}
+}
+
+libeaglemode-devel_package() {
+	depends="libeaglemode-${version}_${revision}"
+	short_desc="eaglemode ZUI library development headers"
+	pkg_install() {
+		vmove "/usr/include/*"
+	}
+}
