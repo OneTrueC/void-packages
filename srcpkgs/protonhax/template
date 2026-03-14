@@ -1,0 +1,19 @@
+# Template file for 'protonhax'
+pkgname=protonhax
+version=1.0.5
+revision=1
+# to depend steam or not to depend steam...
+depends=""
+short_desc="Run programs inside your game proton's environment."
+maintainer="Drew Marino <drewmarino25@gmail.com>"
+license="BSD-3-Clause"
+homepage="https://github.com/jcnils/protonhax"
+changelog="https://github.com/jcnils/protonhax/tags"
+distfiles="https://github.com/jcnils/protonhax/archive/refs/tags/${version}.tar.gz"
+checksum=3da772c947309f33be7b613c1cb9232c3477ae44fb1c581ffa96cb6508496ba4
+
+do_install() {
+	vbin protonhax
+	vlicense LICENSE
+	vdoc README.md
+}
