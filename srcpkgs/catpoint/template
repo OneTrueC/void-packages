@@ -1,0 +1,13 @@
+# Template file for 'catpoint'
+pkgname=catpoint
+version=0.2
+revision=1
+build_style=gnu-makefile
+makedepends="ncurses-devel"
+short_desc="Catpoint simple presenting software."
+maintainer="Drew Marino <drewmarino25@gmail.com>"
+license="GPL-3.0-or-later"
+homepage="gopher://bitreich.org/1/scm/catpoint/files.gph"
+changelog="gopher://bitreich.org/1/scm/catpoint/log.gph"
+distfiles="ftp://ftp@bitreich.org/releases/catpoint/catpoint-v${version}.tar.gz"
+checksum=1a6cfe9a6be35f51b31237eb16ed8550a547492e7199c8c5561711b4ecc16eb2
