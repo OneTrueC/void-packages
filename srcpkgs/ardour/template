@@ -1,7 +1,7 @@
 # Template file for 'ardour'
 pkgname=ardour
-version=8.12
-revision=4
+version=9.2
+revision=1
 build_style=waf3
 configure_args="--cxx17 --no-phone-home --with-backends=jack,alsa,dummy
  --configdir=/etc
@@ -15,13 +15,14 @@ makedepends="boost-headers liblrdf-devel liblo-devel lilv-devel suil-devel
  libltc-devel glibmm-devel libflac-devel"
 depends="desktop-file-utils"
 short_desc="Professional-grade digital audio workstation"
-maintainer="Orphaned <orphan@voidlinux.org>"
+#maintainer="Orphaned <orphan@voidlinux.org>"
+maintainer="Drew Marino <drewmarino25@gmail.com>"
 license="GPL-2.0-or-later"
 homepage="http://ardour.org"
 
 CXXFLAGS="-fpermissive"
 export PATH="/usr/libexec/chroot-git:$PATH"
-conf_files="/etc/ardour8/*"
+conf_files="/etc/ardour9/*"
 
 case "$XBPS_TARGET_MACHINE" in
 	x86_64*)  configure_args+=" --dist-target=x86_64" ;;
