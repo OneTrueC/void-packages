@@ -1,0 +1,17 @@
+# Template file for 'Massif-Visualizer'
+pkgname=Massif-Visualizer
+version=25.12.3
+revision=1
+#archs="i686 x86_64"
+build_style=cmake
+hostmakedepends="extra-cmake-modules"
+makedepends="qt6-base-devel qt6-svg-devel qt6-qt5compat-devel kf6-karchive-devel
+ kf6-kcompletion-devel kf6-kconfig-devel kf6-kcoreaddons-devel kdiagram6-devel
+ kgraphviewer-devel kf6-ki18n-devel kf6-kio-devel kf6-kparts-devel gettext-devel"
+depends="kgraphviewer"
+short_desc="Visualizer for Valgrind Massif data files"
+maintainer="Drew Marino <drewmarino25@gmail.com>"
+license="GPL-2.0-or-later"
+homepage="https://apps.kde.org/massif_visualizer/"
+distfiles="${KDE_SITE}/release-service/${version}/src/massif-visualizer-${version}.tar.xz"
+checksum=051801ee3d9704bb254332e7a317c228a510a5b83ff0304937011148b0212311
