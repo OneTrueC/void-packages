@@ -1,7 +1,7 @@
 # Template file for 'gvfs'
 pkgname=gvfs
-version=1.56.1
-revision=3
+version=1.60.0
+revision=1
 build_style=meson
 configure_args="-Dsystemduserunitdir=no -Dtmpfilesdir=no -Dlogind=false
  -Dman=true -Dgoogle=false"
@@ -20,7 +20,7 @@ license="LGPL-2.1-or-later"
 homepage="https://wiki.gnome.org/Projects/gvfs"
 changelog="https://gitlab.gnome.org/GNOME/gvfs/-/raw/master/NEWS"
 distfiles="${GNOME_SITE}/gvfs/${version%.*}/gvfs-${version}.tar.xz"
-checksum=86731ccec679648f8734e237b1de190ebdee6e4c8c0f56f454c31588e509aa10
+checksum=648273f069e92c7e3c013b92148e82c901f08044e2b3b14c6cfbd52269f6b646
 
 # Manually declare shlibs used by the subpkgs.
 shlib_provides="libgvfscommon.so libgvfsdaemon.so"
